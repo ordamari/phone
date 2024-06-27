@@ -1,0 +1,13 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#482412",
+    "titleBar.activeBackground": "#653219",
+    "titleBar.activeForeground": "#FEFBFA"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.addMissingImports": "explicit"
+  },
+  "cSpell.words": ["tailwindcss"]
+}
