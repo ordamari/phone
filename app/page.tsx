@@ -1,3 +1,5 @@
+'use client'
+
 import Hero from '@/components/sections/hero'
 import Highlights from '@/components/sections/highlights'
 import Navbar from '@/components/sections/navbar'

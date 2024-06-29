@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 
-type NavItemProps = {}
+type NavItemProps = PropsWithChildren
 
-const NavItem = ({}: NavItemProps) => {
-  return <div>NavItem</div>
+const NavItem = ({ children }: NavItemProps) => {
+  return <div className='px-5 text-sm cursor-pointer text-gray hover:text-white transition-colors'>{children}</div>
 }
 
 export default NavItem

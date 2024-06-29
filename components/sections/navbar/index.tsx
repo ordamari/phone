@@ -9,8 +9,10 @@ const Navbar = () => {
       <nav className='flex w-full screen-max-width'>
         <Image alt='Apple' width={14} height={18} src={appleImg} />
         <NavItemList />
-        <Image alt='Search' width={18} height={18} src={searchImg} />
-        <Image alt='Bag' width={18} height={18} src={bagImg} />
+        <div className='flex items-baseline gap-7 max-sm:justify-end max-sm:flex-1'>
+          <Image alt='Search' width={18} height={18} src={searchImg} />
+          <Image alt='Bag' width={18} height={18} src={bagImg} />
+        </div>
       </nav>
     </header>
   )
