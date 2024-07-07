@@ -1,3 +1,4 @@
+import { VideoCarouselItem } from '@/components/ui/video-carousel'
 import {
   blackImg,
   blueImg,
@@ -11,7 +12,7 @@ import {
 
 export const navLists = ['Store', 'Mac', 'iPhone', 'Support']
 
-export const hightlightsSlides = [
+export const highlightsSlides: VideoCarouselItem[] = [
   {
     id: 1,
     textLists: ['Enter A17 Pro.', 'Game‑changing chip.', 'Groundbreaking performance.'],
@@ -21,13 +22,13 @@ export const hightlightsSlides = [
   {
     id: 2,
     textLists: ['Titanium.', 'So strong. So light. So Pro.'],
-    video: highlightSecondVideo,
+    video: highlightThirdVideo,
     videoDuration: 5
   },
   {
     id: 3,
     textLists: ['iPhone 15 Pro Max has the', 'longest optical zoom in', 'iPhone ever. Far out.'],
-    video: highlightThirdVideo,
+    video: highlightSecondVideo,
     videoDuration: 2
   },
   {
