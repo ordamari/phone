@@ -1,7 +1,7 @@
 type VideoData = {
   isEnd: boolean
   startPlay: boolean
-  videoId: number
+  videoIdx: number
   isLastVideo: boolean
   isPlaying: boolean
 }

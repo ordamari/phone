@@ -2,14 +2,14 @@ import { useEffect } from 'react'
 import VideoData from '../types/video-data.type'
 
 function useVideoChange(videoData: VideoData, videoRef: React.MutableRefObject<HTMLVideoElement[]>) {
-  const { startPlay, videoId, isPlaying } = videoData
+  const { startPlay, videoIdx, isPlaying } = videoData
   useEffect(() => {
     if (!isPlaying) {
-      videoRef.current[videoId].pause()
+      videoRef.current[videoIdx].pause()
     } else {
-      startPlay && videoRef.current[videoId]?.play()
+      startPlay && videoRef.current[videoIdx]?.play()
     }
-  }, [startPlay, videoId, isPlaying])
+  }, [startPlay, videoIdx, isPlaying])
 }
 
 export default useVideoChange

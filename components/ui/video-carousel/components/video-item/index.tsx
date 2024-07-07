@@ -19,7 +19,7 @@ const VideoItem = ({ item, index }: VideoItemProps) => {
           <video
             id='video'
             playsInline={true}
-            className={`${item.id === 2 && 'translate-x-44'} pointer-events-none`}
+            className={`${index === 1 && 'translate-x-44'} pointer-events-none`}
             preload='auto'
             muted
             ref={el => updateVideoRef(index, el)}
@@ -30,14 +30,20 @@ const VideoItem = ({ item, index }: VideoItemProps) => {
           </video>
         </div>
 
-        <div className='absolute top-12 left-[5%] z-10'>
-          {item.textLists.map((text, i) => (
-            <p key={i} className='md:text-2xl text-xl font-medium'>
-              {text}
-            </p>
-          ))}
-        </div>
+        <VideoTexts textLists={item.textLists} />
       </div>
+    </div>
+  )
+}
+
+function VideoTexts({ textLists }: { textLists: string[] }) {
+  return (
+    <div className='absolute top-12 left-[5%] z-10'>
+      {textLists.map((text, i) => (
+        <p key={i} className='md:text-2xl text-xl font-medium'>
+          {text}
+        </p>
+      ))}
     </div>
   )
 }

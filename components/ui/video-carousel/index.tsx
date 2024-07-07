@@ -21,7 +21,7 @@ const VideoCarousel = ({ sliders }: VideoCarouselType) => {
   const [videoData, setVideoData] = useState({
     isEnd: false,
     startPlay: false,
-    videoId: 0,
+    videoIdx: 0,
     isLastVideo: false,
     isPlaying: false
   })
@@ -33,7 +33,7 @@ const VideoCarousel = ({ sliders }: VideoCarouselType) => {
   const handleProcess = (type: ProcessType, idx: number = 0) => {
     switch (type) {
       case 'video-end':
-        setVideoData(pre => ({ ...pre, isEnd: true, videoId: idx + 1 }))
+        setVideoData(pre => ({ ...pre, isEnd: true, videoIdx: idx + 1 }))
         break
 
       case 'video-last':
@@ -41,7 +41,7 @@ const VideoCarousel = ({ sliders }: VideoCarouselType) => {
         break
 
       case 'video-reset':
-        setVideoData(pre => ({ ...pre, videoId: 0, isLastVideo: false }))
+        setVideoData(pre => ({ ...pre, videoIdx: 0, isLastVideo: false }))
         break
 
       case 'pause':

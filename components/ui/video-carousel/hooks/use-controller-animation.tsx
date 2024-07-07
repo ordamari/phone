@@ -10,14 +10,14 @@ function useControllerAnimation(
   sliders: VideoCarouselItem[],
   videoData: VideoData
 ) {
-  const { videoId, isPlaying, startPlay } = videoData
+  const { videoIdx, isPlaying, startPlay } = videoData
 
   useEffect(() => {
     let currentProgress = 0
     let span = controllerVideoProgress.current
-    if (span[videoId]) {
+    if (span[videoIdx]) {
       // animation to move the indicator
-      let anim = gsap.to(span[videoId], {
+      let anim = gsap.to(span[videoIdx], {
         onUpdate: () => {
           // get the progress of the video
           const progress = Math.ceil(anim.progress() * 100)
@@ -25,7 +25,7 @@ function useControllerAnimation(
             currentProgress = progress
 
             // set the width of the progress bar
-            gsap.to(controllerVideoWrapper.current[videoId], {
+            gsap.to(controllerVideoWrapper.current[videoIdx], {
               width:
                 window.innerWidth < 760
                   ? '10vw' // mobile
@@ -35,7 +35,7 @@ function useControllerAnimation(
             })
 
             // set the background color of the progress bar
-            gsap.to(span[videoId], {
+            gsap.to(span[videoIdx], {
               width: `${currentProgress}%`,
               backgroundColor: 'white'
             })
@@ -45,23 +45,23 @@ function useControllerAnimation(
         // when the video is ended, replace the progress bar with the indicator and change the background color
         onComplete: () => {
           if (isPlaying) {
-            gsap.to(controllerVideoWrapper.current[videoId], {
+            gsap.to(controllerVideoWrapper.current[videoIdx], {
               width: '12px'
             })
-            gsap.to(span[videoId], {
+            gsap.to(span[videoIdx], {
               backgroundColor: '#afafaf'
             })
           }
         }
       })
 
-      if (videoId == 0) {
+      if (videoIdx == 0) {
         anim.restart()
       }
 
       // update the progress bar
       const animUpdate = () => {
-        anim.progress(videoRef.current[videoId].currentTime / sliders[videoId].videoDuration)
+        anim.progress(videoRef.current[videoIdx].currentTime / sliders[videoIdx].videoDuration)
       }
 
       if (isPlaying) {
@@ -72,7 +72,7 @@ function useControllerAnimation(
         gsap.ticker.remove(animUpdate)
       }
     }
-  }, [videoId, startPlay])
+  }, [videoIdx, startPlay])
 }
 
 export default useControllerAnimation

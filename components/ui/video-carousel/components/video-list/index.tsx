@@ -8,7 +8,7 @@ function VideoList() {
     <div className=''>
       <div className='flex items-center'>
         {sliders.map((item, index) => (
-          <VideoItem key={item.id} item={item} index={index} />
+          <VideoItem key={index} item={item} index={index} />
         ))}
       </div>
     </div>
