@@ -11,6 +11,7 @@ const VideoItem = ({ item, index }: VideoItemProps) => {
   const updateVideoRef = useVideoCarouselContext(context => context.updateVideoRef)
   const handleProcess = useVideoCarouselContext(context => context.handleProcess)
   const setVideoData = useVideoCarouselContext(context => context.setVideoData)
+  const isLast = useVideoCarouselContext(context => context.sliders.length - 1 === index)
 
   return (
     <div id='slider' className='sm:pr-20 pr-10'>
@@ -19,11 +20,11 @@ const VideoItem = ({ item, index }: VideoItemProps) => {
           <video
             id='video'
             playsInline={true}
-            className={`${index === 1 && 'translate-x-44'} pointer-events-none`}
+            className={`${item.className} pointer-events-none`}
             preload='auto'
             muted
             ref={el => updateVideoRef(index, el)}
-            onEnded={() => (index !== 3 ? handleProcess('video-end', index) : handleProcess('video-last'))}
+            onEnded={() => (isLast ? handleProcess('video-last') : handleProcess('video-end', index))}
             onPlay={() => setVideoData(pre => ({ ...pre, isPlaying: true }))}
           >
             <source src={item.video} type='video/mp4' />

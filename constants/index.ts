@@ -21,7 +21,8 @@ export const highlightsSlides: VideoCarouselItem[] = [
   {
     textLists: ['Titanium.', 'So strong. So light. So Pro.'],
     video: highlightThirdVideo,
-    videoDuration: 5
+    videoDuration: 5,
+    className: 'translate-x-44'
   },
   {
     textLists: ['iPhone 15 Pro Max has the', 'longest optical zoom in', 'iPhone ever. Far out.'],
